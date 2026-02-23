@@ -5,101 +5,77 @@
     --blanco: #ffffff;
 }
 
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--fondo); color: #333; padding: 20px; }
+/* Base y Responsive */
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--fondo); color: #333; padding: 10px; margin: 0; }
 .container { max-width: 1000px; margin: auto; }
-.card { background: var(--blanco); padding: 25px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: 0.3s; }
+.card { background: var(--blanco); padding: 20px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: 0.3s; position: relative; }
 
-.interactivo { cursor: pointer; }
-.interactivo:hover { transform: translateY(-5px); border-color: var(--fucsia); }
+/* Header y Logo */
+.header-flexible { display: flex; justify-content: space-between; align-items: center; }
+.logo-img { max-width: 180px; height: auto; border-radius: 8px; }
 
-.valor { display: block; font-size: 3rem; font-weight: bold; color: var(--fucsia); }
-.etiqueta { font-size: 1rem; color: #777; font-weight: bold; text-transform: uppercase; }
-.instruccion { font-size: 0.8rem; color: var(--azul-meli); margin-top: 10px; font-style: italic; }
+/* Textos en AZUL (como pediste) */
+.instruccion, .instruccion-fuga, .sub-alerta { 
+    color: var(--azul-meli) !important; 
+    font-size: 0.85rem; 
+    font-style: italic; 
+    margin-top: 5px;
+}
 
-.grid-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-.contenido-principal { display: grid; grid-template-columns: 2fr 1fr; gap: 15px; }
+/* KPIs */
+.grid-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+.valor { display: block; font-size: 2.8rem; font-weight: bold; color: var(--fucsia); }
+.etiqueta { font-size: 0.9rem; color: #777; font-weight: bold; text-transform: uppercase; }
 
-.negativo { color: #d32f2f; font-weight: bold; font-size: 1.2rem; }
-.tabla-gap { width: 100%; margin-top: 15px; }
-.tabla-gap td { padding: 12px; border-bottom: 1px solid #eee; }
+/* Cierre de Brecha (DISEÑO ORIGINAL) */
+.barra-progreso { padding: 15px 0; }
+.barra-progreso p { margin: 8px 0; font-weight: bold; font-size: 1rem; color: #333; }
+.progresion-gris { height: 24px; background: #cbd5e1; width: 100%; border-radius: 12px; margin-bottom: 20px; }
+.progresion-fucsia { height: 24px; background: var(--fucsia); width: 80%; border-radius: 12px; }
 
-.accion-comercial { text-align: center; border: 3px dashed var(--azul-meli); background: #eef5ff; }
-.boton-principal { background: var(--fucsia); color: white; border: none; padding: 18px 35px; border-radius: 10px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+/* Layout */
+.contenido-principal { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 15px; }
+.tabla-gap { width: 100%; border-collapse: collapse; }
+.tabla-gap td { padding: 12px 5px; border-bottom: 1px solid #eee; }
+.negativo { color: #d32f2f; font-weight: bold; }
 
-/* Ventana Emergente */
-.ventana { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 1000; }
-.ventana-contenido { background: white; padding: 40px; border-radius: 20px; max-width: 600px; width: 90%; }
+/* Contador de Dinero */
+.alerta-dinero { background: #1a1a1a; color: #ffffff; border-left: 5px solid var(--fucsia); text-align: center; padding: 30px; }
+#contador-fuga { font-family: 'Courier New', monospace; font-size: clamp(1.8rem, 8vw, 3.5rem); font-weight: bold; color: #00ff00; text-shadow: 0 0 10px rgba(0, 255, 0, 0.5); margin: 15px 0; }
+
+/* Modales y Botones */
+.ventana { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 2000; padding: 15px; box-sizing: border-box; }
+.ventana-contenido { background: white; padding: 30px; border-radius: 20px; max-width: 800px; width: 100%; max-height: 90vh; overflow-y: auto; }
 .oculto { display: none; }
-.boton-cerrar { margin-top: 25px; background: #555; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+.boton-principal { background: var(--fucsia); color: white; border: none; padding: 18px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem; }
 
-.barra-progreso { padding: 10px 0; }
-.barra-progreso p { margin: 5px 0; font-weight: bold; font-size: 0.9rem; }
-.progresion-gris { height: 20px; background: #cbd5e1; width: 100%; border-radius: 10px; margin-bottom: 15px; }
-.progresion-fucsia { height: 20px; background: var(--fucsia); width: 80%; border-radius: 10px; } /* 80% es la relación 50M vs 62M */
-
-.ventana-contenido { max-width: 800px; } /* Un poco más ancho para el gráfico */
-
-/* Estilos para el encabezado con logo */
-.header-flexible {
-    display: flex;
-    justify-content: space-between; /* Empuja el texto a la izquierda y el logo a la derecha */
-    align-items: center;
-    padding: 25px;
+@media (max-width: 600px) {
+    .header-flexible { flex-direction: column-reverse; text-align: center; }
+    .header-logo { margin-bottom: 15px; }
 }
 
-.header-texto {
-    flex: 1; /* Toma el espacio restante */
-}
+/* ... resto del código igual ... */
 
-.header-logo {
-    margin-left: 20px;
-}
-
-.logo-img {
-    max-width: 200px; /* Ajustá este tamaño según prefieras */
-    height: auto;
-    border-radius: 8px; /* Opcional: para suavizar los bordes del logo */
-}
-
-.alerta-dinero {
-    background: #1a1a1a; /* Fondo oscuro para que resalte */
-    color: #ffffff;
-    border-left: 5px solid var(--fucsia);
-    text-align: center;
-    padding: 30px;
-    margin: 20px 0;
-}
-
-.alerta-encabezado {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-#contador-fuga {
-    font-family: 'Courier New', monospace;
-    font-size: 3.5rem;
+.boton-cerrar { 
+    margin-top: 25px; 
+    background: #555; /* Gris original */
+    color: white; 
+    border: none; 
+    padding: 12px 25px; 
+    border-radius: 8px; 
+    cursor: pointer; 
     font-weight: bold;
-    color: #00ff00; /* Color verde "dinero" o fucsia si preferís */
-    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-    margin: 15px 0;
+    transition: background 0.2s;
 }
 
-.punto-parpadeante {
-    height: 12px;
-    width: 12px;
-    background-color: #ff0000;
-    border-radius: 50%;
-    display: inline-block;
-    animation: parpadeo 1s infinite;
+.boton-cerrar:hover {
+    background: #333;
 }
 
-@keyframes parpadeo {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
+/* Textos informativos en Azul Meli */
+.instruccion, .instruccion-fuga, .sub-alerta { 
+    color: var(--azul-meli) !important; 
+    font-size: 0.85rem; 
+    font-style: italic;
+    margin-top: 10px;
 }
-
-.sub-alerta { color: #aaa; font-size: 0.9rem; }
-.instruccion-fuga { color: var(--azul-meli); font-size: 0.8rem; font-weight: bold; }
