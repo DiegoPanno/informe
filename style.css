@@ -23,7 +23,11 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
 }
 
 /* KPIs */
-.grid-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+.grid-stats { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 15px; 
+}
 .valor { display: block; font-size: 2.8rem; font-weight: bold; color: var(--fucsia); }
 .etiqueta { font-size: 0.9rem; color: #777; font-weight: bold; text-transform: uppercase; }
 
@@ -58,19 +62,16 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
 
 .boton-cerrar { 
     margin-top: 25px; 
-    background: #555; /* Gris original */
+    background: #555 !important; 
     color: white; 
     border: none; 
     padding: 12px 25px; 
     border-radius: 8px; 
     cursor: pointer; 
-    font-weight: bold;
-    transition: background 0.2s;
+    font-weight: bold; 
 }
 
-.boton-cerrar:hover {
-    background: #333;
-}
+.boton-cerrar:hover { background: #333 !important; }
 
 /* Textos informativos en Azul Meli */
 .instruccion, .instruccion-fuga, .sub-alerta { 
@@ -79,3 +80,23 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
     font-style: italic;
     margin-top: 10px;
 }
+
+/* Esto le dice al navegador que muestre la 'manito' */
+.interactivo {
+    cursor: pointer; /* Cambia el puntero */
+    transition: all 0.3s ease; /* Hace que el efecto sea suave */
+}
+
+/* Efecto visual al pasar el mouse (Desktop) */
+.interactivo:hover {
+    transform: translateY(-5px); /* Se eleva un poquito */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15); /* Sombra más profunda */
+    border: 1px solid var(--fucsia); /* Resalta el borde con tu color fucsia */
+    background-color: #fffafa; /* Un tono casi imperceptible de rojo para indicar acción */
+}
+
+/* Cambiar el color de la 'instrucción' al hacer hover para guiar el ojo */
+.interactivo:hover .instruccion {
+    color: var(--fucsia) !important;
+    text-decoration: underline;
+}   
