@@ -1,0 +1,40 @@
+:root {
+    --fucsia: #e91e63;
+    --azul-meli: #3483fa;
+    --fondo: #f4f4f4;
+    --blanco: #ffffff;
+}
+
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--fondo); color: #333; padding: 20px; }
+.container { max-width: 1000px; margin: auto; }
+.card { background: var(--blanco); padding: 25px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: 0.3s; }
+
+.interactivo { cursor: pointer; }
+.interactivo:hover { transform: translateY(-5px); border-color: var(--fucsia); }
+
+.valor { display: block; font-size: 3rem; font-weight: bold; color: var(--fucsia); }
+.etiqueta { font-size: 1rem; color: #777; font-weight: bold; text-transform: uppercase; }
+.instruccion { font-size: 0.8rem; color: var(--azul-meli); margin-top: 10px; font-style: italic; }
+
+.grid-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.contenido-principal { display: grid; grid-template-columns: 2fr 1fr; gap: 15px; }
+
+.negativo { color: #d32f2f; font-weight: bold; font-size: 1.2rem; }
+.tabla-gap { width: 100%; margin-top: 15px; }
+.tabla-gap td { padding: 12px; border-bottom: 1px solid #eee; }
+
+.accion-comercial { text-align: center; border: 3px dashed var(--azul-meli); background: #eef5ff; }
+.boton-principal { background: var(--fucsia); color: white; border: none; padding: 18px 35px; border-radius: 10px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+
+/* Ventana Emergente */
+.ventana { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.ventana-contenido { background: white; padding: 40px; border-radius: 20px; max-width: 600px; width: 90%; }
+.oculto { display: none; }
+.boton-cerrar { margin-top: 25px; background: #555; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+
+.barra-progreso { padding: 10px 0; }
+.barra-progreso p { margin: 5px 0; font-weight: bold; font-size: 0.9rem; }
+.progresion-gris { height: 20px; background: #cbd5e1; width: 100%; border-radius: 10px; margin-bottom: 15px; }
+.progresion-fucsia { height: 20px; background: var(--fucsia); width: 80%; border-radius: 10px; } /* 80% es la relación 50M vs 62M */
+
+.ventana-contenido { max-width: 800px; } /* Un poco más ancho para el gráfico */

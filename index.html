@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero Estratégico Ámbito</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="card interactivo" onclick="mostrarDetalle('estatus')">
+            <h1>Pinturerías Ámbito</h1>
+            <p>Estatus: <strong>Página Modelo</strong> / MercadoLíder Platinum</p>
+            <p class="instruccion">Tocá para ver la evolución del canal ↑</p>
+        </header>
+
+        <section class="grid-stats">
+            <div class="card interactivo" onclick="mostrarDetalle('crecimiento')">
+                <span class="etiqueta">Crecimiento Enero</span>
+                <span class="valor">+8,6%</span>
+            </div>
+            <div class="card interactivo" onclick="mostrarDetalle('comunidad')">
+                <span class="etiqueta">Comunidad Ámbito</span>
+                <span class="valor">1.726</span>
+            </div>
+            <div class="card interactivo" onclick="mostrarDetalle('ranking')">
+                <span class="etiqueta">Posición Ranking</span>
+                <span class="valor">90°</span>
+            </div>
+        </section>
+
+        <div class="contenido-principal">
+    <div class="card interactivo" onclick="mostrarDetalle('top10')">
+        <h2>Cierre de Brecha vs Top 10</h2>
+        <div id="contenedor-comparativa">
+            <div class="barra-progreso">
+                <p>10. Giannoni (Objetivo): $62.8M</p>
+                <div class="progresion-gris"></div>
+                <p>ÁMBITO (P90): $50.1M</p>
+                <div class="progresion-fucsia"></div>
+            </div>
+        </div>
+        <p class="instruccion">Tocá para ver el mapa completo de líderes ↑</p>
+    </div>
+
+    <div class="card interactivo" onclick="mostrarDetalle('fuga')">
+        <h2>Freno de Ventas (GAP)</h2>
+        <table class="tabla-gap">
+            <tr><td>Alba Constructor</td><td class="negativo">-25%</td></tr>
+            <tr><td>Brikol Pisos</td><td class="negativo">-9%</td></tr>
+            <tr><td>Cetol Satinado</td><td class="negativo">-8%</td></tr>
+        </table>
+        <p class="alerta">Fuga contra Sagitario detectada</p>
+    </div>
+</div>
+
+<div id="ventanaInfo" class="ventana oculto" onclick="cerrarVentana()">
+    <div class="ventana-contenido" onclick="event.stopPropagation()">
+        <h3 id="tituloVentana"></h3>
+        <div id="cuerpoVentana"></div>
+        <div id="canvas-container" style="height: 400px; display: none;">
+            <canvas id="graficoCompleto"></canvas>
+        </div>
+        <button onclick="cerrarVentana()" class="boton-cerrar">Cerrar</button>
+    </div>
+</div>
+
+        <section class="card accion-comercial">
+            <h2>Acción Comercial Inmediata</h2>
+            
+            <button id="botonAccion" class="boton-principal">INICIAR PLAN DE RECUPERACIÓN</button>
+            <div id="resultadoAccion" class="oculto">
+                <p>✅ <strong>Negociación con Proveedores:</strong> Gestionar descuentos por reposición para cerrar la diferencia de precios.</p>
+                <p>✅ <strong>Apoyo de Marca:</strong> Solicitar fondos de publicidad para productos estratégicos, posicionando nuestra página como su vitrina oficial de alta calidad.</p>
+            </div>
+        </section>
+    </div>
+
+    <div id="ventanaInfo" class="ventana oculto" onclick="cerrarVentana()">
+        <div class="ventana-contenido" onclick="event.stopPropagation()">
+            <h3 id="tituloVentana"></h3>
+            <div id="cuerpoVentana"></div>
+            <button onclick="cerrarVentana()" class="boton-cerrar">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
