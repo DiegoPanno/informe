@@ -112,3 +112,17 @@ document.getElementById('botonAccion').onclick = function() {
     this.style.display = 'none';
     document.getElementById('resultadoAccion').classList.remove('oculto');
 };
+
+// LÓGICA DEL CONTADOR DE FUGA - ESCENARIO LÍDER ABSOLUTO (MM)
+// Brecha mensual: $381,090,074 / 30 días / 24 hs / 3600 seg = $146.56 por segundo
+let totalFugaMM = 0;
+const incrementoMM = 146.56; 
+
+function actualizarContadorLider() {
+    totalFugaMM += incrementoMM;
+    document.getElementById('contador-fuga').innerText = 
+        '$ ' + totalFugaMM.toLocaleString('es-AR', { minimumFractionDigits: 2 });
+}
+
+// Actualiza cada 1 segundo (el salto de números será mucho más rápido)
+setInterval(actualizarContadorLider, 1000);

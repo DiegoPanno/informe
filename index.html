@@ -9,11 +9,16 @@
 </head>
 <body>
     <div class="container">
-        <header class="card interactivo" onclick="mostrarDetalle('estatus')">
-            <h1>Pinturerías Ámbito</h1>
-            <p>Estatus: <strong>Página Modelo</strong> / MercadoLíder Platinum</p>
-            <p class="instruccion">Tocá para ver la evolución del canal ↑</p>
-        </header>
+        <header class="card interactivo header-flexible" onclick="mostrarDetalle('estatus')">
+    <div class="header-texto">
+        <h1>Pinturerías Ámbito</h1>
+        <p>Estatus: <strong>Página Modelo</strong> / MercadoLíder Platinum</p>
+        <p class="instruccion">Tocá para ver la evolución del canal ↑</p>
+    </div>
+    <div class="header-logo">
+        <img src="img/logoAmbito.jpg" alt="Logo Ámbito" class="logo-img">
+    </div>
+</header>
 
         <section class="grid-stats">
             <div class="card interactivo" onclick="mostrarDetalle('crecimiento')">
@@ -28,6 +33,7 @@
                 <span class="etiqueta">Posición Ranking</span>
                 <span class="valor">90°</span>
             </div>
+            
         </section>
 
         <div class="contenido-principal">
@@ -84,6 +90,18 @@
             <button onclick="cerrarVentana()" class="boton-cerrar">Cerrar</button>
         </div>
     </div>
+
+    <section class="card alerta-dinero">
+            <div class="alerta-encabezado">
+                <span class="punto-parpadeante"></span>
+                <h3>POTENCIAL DE MERCADO NO CAPTURADO</h3>
+            </div>
+            <p class="sub-alerta">Distancia de facturación mensual frente al Líder Nacional (MM):</p>
+            <div id="contador-fuga">$ 0,00</div>
+            <p class="instruccion-fuga">Brecha total con el líder: $381.090.074 mensuales <br>
+            Esto equivale a $146,56 por segundo</p>
+        </section>
+        </section>
 
     <script src="script.js"></script>
 </body>
